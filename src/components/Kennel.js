@@ -9,6 +9,8 @@ import Customer from "./customers/Customer"
 import "./customers/Customer.css"
 import { LocationProvider } from "./locations/LocationProvider"
 import LocationList from "./locations/LocationList"
+import { AnimalProvider } from "./animal/AnimalProvider"
+import AnimalList from "./animal/AnimalList"
 
 export default () => (
     <>
@@ -21,9 +23,9 @@ export default () => (
 
         <h2>Animals</h2>
         <article className="animals">
-            <Animal />
-            <Animal />
-            <Animal />
+            <AnimalProvider>
+                <AnimalList />
+            </AnimalProvider>
         </article>
 
         <h2>Employees</h2>
