@@ -23,18 +23,21 @@ export default () => (
         </address>
 
         <h2>Animals</h2>
-        <article className="animals">
             <AnimalProvider>
-                <AnimalList />
+                <CustomerProvider>
+                    <LocationProvider>
+                        <AnimalList />
+                    </LocationProvider>
+                </CustomerProvider>
+                
             </AnimalProvider>
-        </article>
 
         <h2>Employees</h2>
-        <article className="employees">
             <EmployeeProvider>
-                <EmployeeList />
+                <LocationProvider>
+                    <EmployeeList />
+                </LocationProvider>                
             </EmployeeProvider>
-        </article>
 
         <h2>Locations</h2>
         <LocationProvider>
