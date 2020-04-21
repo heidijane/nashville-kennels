@@ -1,11 +1,8 @@
 import React from "react"
 import "./Kennel.css"
-import Animal from "./animal/Animal"
 import "./animal/Animals.css"
-import Employee from "./employees/Employee"
 import "./employees/Employee.css"
 import "./locations/Location.css"
-import Customer from "./customers/Customer"
 import "./customers/Customer.css"
 import { LocationProvider } from "./locations/LocationProvider"
 import LocationList from "./locations/LocationList"
@@ -13,6 +10,8 @@ import { AnimalProvider } from "./animal/AnimalProvider"
 import AnimalList from "./animal/AnimalList"
 import { EmployeeProvider } from "./employees/EmployeeProvider"
 import EmployeeList from "./employees/EmployeeList"
+import { CustomerProvider } from "./customers/CustomerProvider"
+import CustomerList from "./customers/CustomerList"
 
 export default () => (
     <>
@@ -45,10 +44,8 @@ export default () => (
 
 
         <h2>Customers</h2>
-        <article className="customers">
-            <Customer />
-            <Customer />
-            <Customer />
-        </article>
+        <CustomerProvider>
+            <CustomerList />
+        </CustomerProvider>
     </>
 )
