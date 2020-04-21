@@ -4,10 +4,11 @@ import Animal from "./animal/Animal"
 import "./animal/Animals.css"
 import Employee from "./employees/Employee"
 import "./employees/Employee.css"
-import Location from "./locations/Location"
 import "./locations/Location.css"
 import Customer from "./customers/Customer"
 import "./customers/Customer.css"
+import { LocationProvider } from "./locations/LocationProvider"
+import LocationList from "./locations/LocationList"
 
 export default () => (
     <>
@@ -33,11 +34,11 @@ export default () => (
         </article>
 
         <h2>Locations</h2>
-        <article className="locations">
-            <Location />
-            <Location />
-            <Location />
-        </article>
+        <LocationProvider>
+            <LocationList />
+        </LocationProvider>
+
+
 
         <h2>Customers</h2>
         <article className="customers">
