@@ -22,31 +22,24 @@ export default () => (
             <div>500 Puppy Way</div>
         </address>
 
-        <h2>Animals</h2>
             <AnimalProvider>
                 <CustomerProvider>
                     <LocationProvider>
                         <AnimalList />
                     </LocationProvider>
-                </CustomerProvider>
-                
+                </CustomerProvider>            
             </AnimalProvider>
 
-        <h2>Employees</h2>
-            <EmployeeProvider>
-                <LocationProvider>
-                    <EmployeeList />
-                </LocationProvider>                
-            </EmployeeProvider>
+        <EmployeeProvider>
+            <LocationProvider>
+                <EmployeeList />
+            </LocationProvider>
+        </EmployeeProvider>
 
-        <h2>Locations</h2>
         <LocationProvider>
             <LocationList />
         </LocationProvider>
 
-
-
-        <h2>Customers</h2>
         <CustomerProvider>
             <CustomerList />
         </CustomerProvider>

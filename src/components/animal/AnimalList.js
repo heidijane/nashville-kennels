@@ -10,7 +10,9 @@ export default () => {
     const { customers } = useContext(CustomerContext)
     const { locations } = useContext(LocationContext)
 
-    return <div className="animals">{
+    return <>
+    <h2>Animals</h2>
+    <div className="animals">{
         animals.map(animal => {
         const owner = customers.find(cust => cust.id === animal.customerId)
         const location = locations.find(loc => loc.id === animal.locationId)
@@ -21,4 +23,5 @@ export default () => {
                     animal={animal} />
     })
     }</div>
+    </>
 }
