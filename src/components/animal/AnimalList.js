@@ -1,17 +1,31 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { AnimalContext } from "./AnimalProvider"
 import Animal from "./Animal"
 import "./Animals.css"
 import { CustomerContext } from "../customers/CustomerProvider"
 import { LocationContext } from "../locations/LocationProvider"
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap"
 
 export default () => {
     const { animals } = useContext(AnimalContext)
     const { customers } = useContext(CustomerContext)
     const { locations } = useContext(LocationContext)
 
+    const [modal, setModal] = useState(false)
+    const toggle = () => setModal(!modal)
+
     return <>
     <h2>Animals</h2>
+    <Button onClick={
+        () => {
+                const userId = localStorage.getItem("kennel_customer")
+                if(userId){
+                    // If the user is authenticated, show the animal form
+                    toggle()
+                }
+            }
+        }
+        >Make Appointment</Button>
     <div className="animals">{
         animals.map(animal => {
         const owner = customers.find(cust => cust.id === animal.customerId)
@@ -23,5 +37,15 @@ export default () => {
                     animal={animal} />
     })
     }</div>
+
+    <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>
+            New Employee
+        </ModalHeader>
+        <ModalBody>
+            {/* <EmployeeForm toggler={toggle} /> */}
+        </ModalBody>
+    </Modal>
+
     </>
 }
