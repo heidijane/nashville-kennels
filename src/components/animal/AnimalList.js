@@ -5,6 +5,7 @@ import "./Animals.css"
 import { CustomerContext } from "../customers/CustomerProvider"
 import { LocationContext } from "../locations/LocationProvider"
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap"
+import AnimalForm from "./AnimalForm"
 
 export default () => {
     const { animals } = useContext(AnimalContext)
@@ -43,7 +44,7 @@ export default () => {
             New Employee
         </ModalHeader>
         <ModalBody>
-            {/* <EmployeeForm toggler={toggle} /> */}
+            <AnimalForm toggler={toggle} />
         </ModalBody>
     </Modal>
 
