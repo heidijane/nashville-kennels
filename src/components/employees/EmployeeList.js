@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react"
 import { EmployeeContext } from "./EmployeeProvider"
 import Employee from "./Employee"
 import { LocationContext } from "../locations/LocationProvider"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap"
 import EmployeeForm from "./EmployeeForm"
 
 
@@ -17,9 +17,9 @@ export default () => {
         <>
             <h2>Employees</h2>
 
-            <div className="fakeLink href" onClick={toggle}>New Employee</div>
+            <Button onClick={toggle}>Add New Employee</Button>
 
-            <ul className="employees">
+            <div className="employees cardGroup">
                 {
                     employees.map(employee => {
                         const loc = locations.find(l => l.id === employee.locationId)
@@ -27,7 +27,7 @@ export default () => {
                         return <Employee key={employee.id} location={loc} employee={employee} />
                     })
                 }
-            </ul>
+            </div>
 
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>

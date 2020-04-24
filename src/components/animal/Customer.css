@@ -1,0 +1,10 @@
+ .customers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .customer {
+      flex-basis: 28%;
+      margin: 1em;
+  }

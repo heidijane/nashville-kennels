@@ -9,7 +9,7 @@ export default () => {
     return (
         <>
         <h2>Customers</h2>
-        <div className="customers">
+        <div className="customers cardGroup">
         {
             customers.map(customer => <Customer key={customer.id} customer={customer} />)
         }

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import { AnimalContext } from "../animal/AnimalProvider"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, ListGroup, ListGroupItem } from "reactstrap"
 import Animal from "../animal/Animal"
 import { CustomerContext } from "../customers/CustomerProvider"
 import { LocationContext } from "../locations/LocationProvider"
@@ -29,11 +29,10 @@ export const SearchResults = ({ searchTerms }) => {
 
     return (
         <div className="searchResults">
-            <h3>Results</h3>
-            <div className="animals">
+            <h3>Search Results</h3>
+            <ListGroup>
                 {
-                    filteredAnimals.map(animal => <div
-                        className="fakeLink href"
+                    filteredAnimals.map(animal => <ListGroupItem tag="a" href="#" action
                         key={ animal.id }
                         onClick={() => {
                             const location = locations.find(l => l.id === animal.locationId)
@@ -42,13 +41,13 @@ export const SearchResults = ({ searchTerms }) => {
                             setAnimal({ animal, location, customer })
                             toggle()
                         }}
-                    >{animal.name}</div>)
+                    >{animal.name}</ListGroupItem>)
                 }
-            </div>
+                </ListGroup>
 
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>
-                    { selectedAnimal.animal.name }
+                    Animal Details
                 </ModalHeader>
                 <ModalBody>
                     <Animal key={selectedAnimal.animal.id} {...selectedAnimal} />

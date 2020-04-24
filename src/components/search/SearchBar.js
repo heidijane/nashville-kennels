@@ -7,7 +7,6 @@ export const SearchBar = ({ setTerms }) => {
     return (
         <fieldset>
             <div className="form-group">
-                <label htmlFor="searchTerms">Search:</label>
                 <input onKeyUp={ e => setTerms(e.target.value) }
                     type="text"
                     id="searchTerms"
@@ -15,6 +14,7 @@ export const SearchBar = ({ setTerms }) => {
                     required
                     autoFocus
                     className="form-control"
+                    placeholder="Search Animals"
                 />
             </div>
         </fieldset>

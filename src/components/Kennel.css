@@ -11,12 +11,24 @@ textarea {
 	color: #404040;
 	font-family: 'Comfortaa', Arial, sans-serif;
 	font-size: 14px;
-	line-height: 1.5;
+  line-height: 1.5;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Patua One', serif;
   letter-spacing: 2px;
+}
+h1 {
+  font-size:1.25em;
+}
+h2{
+  font-size:1.25em;
+}
+h3 {
+  font-size:1.20em;
+}
+h4 {
+  font-size:1.15em;
 }
 
 p {
@@ -26,34 +38,24 @@ p {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 address {
   margin: 0 0 1.5em;
 }
 
-.fakeLink {
-  background: none!important;
-  border: none;
-  font-family: arial, sans-serif;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.href {
-  color: #479cf7d3;
-  text-decoration: underline;
-}
-
-.href:hover {
-  color: #007bff;
-}
-
-.fakeLink:focus {
-  outline: 0;
-}
-
 .icon--delete {
   padding-left: 0.5rem;
+}
+
+.cardGroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.cardItem {
+    flex-basis: 28%;
+    margin: 1em 1em 0 0;
 }

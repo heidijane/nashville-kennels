@@ -27,7 +27,7 @@ export default () => {
             }
         }
         >Make Appointment</Button>
-    <div className="animals">{
+    <div className="animals cardGroup">{
         animals.map(animal => {
         const owner = customers.find(cust => cust.id === animal.customerId)
         const location = locations.find(loc => loc.id === animal.locationId)
@@ -41,7 +41,7 @@ export default () => {
 
     <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>
-            New Employee
+            Admit an Animal
         </ModalHeader>
         <ModalBody>
             <AnimalForm toggler={toggle} />

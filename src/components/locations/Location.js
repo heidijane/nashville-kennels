@@ -1,8 +1,15 @@
 import React from "react"
+import { Card, CardHeader, CardBody, CardText } from "reactstrap"
 
 export default ({ location }) => (
-    <section className="location">
-        <h3 className="location__name">{location.name}</h3>
-        <address className="location__address">{location.address}</address>
+    <section className="location cardItem">
+        <Card>
+            <CardHeader>
+                <h3>{location.name}</h3>
+            </CardHeader>
+            <CardBody>
+                <CardText>{location.address}</CardText>
+            </CardBody>
+        </Card>
     </section>
 )

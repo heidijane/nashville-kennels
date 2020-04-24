@@ -1,9 +1,16 @@
 import React from "react"
+import { Card, CardHeader, CardBody, CardText } from "reactstrap"
 
 export default ({ animal, customer, location }) => (
-    <section className="animal">
-        <p className="animal__breed">{animal.breed}</p>
-        <p className="animal__customer">Owner: {customer.name}</p>
-        <p className="animal__location">Branch: {location.name}</p>
+    <section className="animal cardItem">
+        <Card>
+            <CardHeader><h3>{animal.name}</h3></CardHeader>
+            <CardBody>
+                <CardText>{animal.breed}</CardText>
+                <CardText>Owner: {customer.name}</CardText>
+                <CardText>Branch: {location.name}</CardText>
+                <CardText></CardText>
+                </CardBody>
+        </Card>
     </section>
 )
