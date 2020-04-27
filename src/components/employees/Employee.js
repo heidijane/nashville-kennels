@@ -1,7 +1,7 @@
 import React from "react"
-import { Card, CardHeader, CardBody } from "reactstrap"
+import { Button, Card, CardHeader, CardBody, CardFooter } from "reactstrap"
 
-export default ({ employee, location }) => (
+export default ({ employee, location, toggle }) => (
     <section className="employee cardItem">
         <Card>
             <CardHeader>
@@ -10,6 +10,11 @@ export default ({ employee, location }) => (
             <CardBody>
                 {location.name}
             </CardBody>
+            <CardFooter>
+                <Button color="info" onClick={
+                    toggle
+                }>Edit Info</Button>
+            </CardFooter>
         </Card>
     </section>
 )

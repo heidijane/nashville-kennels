@@ -13,6 +13,9 @@ export default () => {
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
 
+    const [editModal, setEditModal] = useState(false)
+    const toggleEdit = () => setEditModal(!editModal)
+
     return (
         <>
             <h2>Employees</h2>
@@ -24,10 +27,19 @@ export default () => {
                     employees.map(employee => {
                         const loc = locations.find(l => l.id === employee.locationId)
 
-                        return <Employee key={employee.id} location={loc} employee={employee} />
+                        return <Employee key={employee.id} location={loc} employee={employee} toggle={toggleEdit} />
                     })
                 }
             </div>
+
+            <Modal isOpen={editModal} toggle={toggleEdit}>
+                <ModalHeader toggle={toggleEdit}>
+                    Edit Employee Info
+                </ModalHeader>
+                <ModalBody>
+                    test
+                </ModalBody>
+            </Modal>
 
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>
