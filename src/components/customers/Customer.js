@@ -11,8 +11,7 @@ export default ({ customer }) => {
         <Card>
             <CardHeader><h3>{customer.name}</h3></CardHeader>
             <CardBody>
-                {customer.address ? <CardText>{customer.address}</CardText> : ""}
-                {filteredAnimals.length !== 0 ? <CardText>Pets in our care: {filteredAnimals.map(animal => animal.name).join(", ")}</CardText> : ""}
+                {filteredAnimals.length !== 0 ? <CardText>Pets in our care: {filteredAnimals.map(animal => animal.name).join(", ")}</CardText> : "No animals currently checked-in"}
             </CardBody>
         </Card>
     </section>

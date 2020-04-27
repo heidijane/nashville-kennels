@@ -4,8 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, ListGroup, ListGrou
 import Animal from "../animal/Animal"
 import { CustomerContext } from "../customers/CustomerProvider"
 import { LocationContext } from "../locations/LocationProvider"
-
-
+import { EditAnimalForm } from "../animal/EditAnimalForm"
 
 export const SearchResults = ({ searchTerms }) => {
     const { animals, releaseAnimal } = useContext(AnimalContext)
@@ -15,8 +14,13 @@ export const SearchResults = ({ searchTerms }) => {
     const [filteredAnimals, setFiltered] = useState([])
     const [selectedAnimal, setAnimal] = useState({animal: {id:0}, location: null, customer: null})
 
+    //Toggle the animal details modal
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
+
+    //Toggle the edit animal details modal
+    const [editModal, setEditModal] = useState(false)
+    const toggleEdit = () => setEditModal(!editModal)
 
     useEffect(() => {
         if (searchTerms !== null && searchTerms !== "") {
@@ -45,6 +49,15 @@ export const SearchResults = ({ searchTerms }) => {
                 }
                 </ListGroup>
 
+            <Modal isOpen={editModal} toggle={toggleEdit}>
+                <ModalHeader toggle={toggleEdit}>
+                    { selectedAnimal.animal.name }
+                </ModalHeader>
+                <ModalBody>
+                    <EditAnimalForm key={selectedAnimal.animal.id} toggleEdit={toggleEdit} {...selectedAnimal} />
+                </ModalBody>
+            </Modal>
+
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>
                     Animal Details
@@ -53,6 +66,10 @@ export const SearchResults = ({ searchTerms }) => {
                     <Animal key={selectedAnimal.animal.id} {...selectedAnimal} />
                 </ModalBody>
                 <ModalFooter>
+                    <Button color="info" onClick={() => {
+                            toggle()
+                            toggleEdit()
+                    }}>Edit Info</Button>
                     <Button color="danger" onClick={() => {
                         releaseAnimal(selectedAnimal.animal.id)
                         toggle()
